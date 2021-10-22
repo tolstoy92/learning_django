@@ -5,7 +5,14 @@
         <title>Главная :: Доска объявлений</title>
     </head>
     <body>
-        <h1>Объявления</h1>
+        <h1>Рубрики</h1>
+        <div>
+        {% for rubric in rubrics %}
+            <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
+        {% endfor %}
+        </div>
+        <a href="{% url 'add' %}">Добавить объявление</a>
+        <h1>Все объявления</h1>
         {% for bb in bbs %}
         <div>
             <h2>{{ bb.title }}</h2>
